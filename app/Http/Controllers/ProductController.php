@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -24,7 +23,19 @@ class ProductController extends Controller
 
     public function store()
     {
-        dd('In Store');
+        /* 
+        $product = Product::create([
+            'title' => request()->title,
+            'description' => request()->description,
+            'price' => request()->price,
+            'stock' => request()->stock,
+            'status' => request()->status,
+        ]); 
+        */
+        
+        $product = Product::create(request()->all());
+
+        return $product;
     }
 
     public function show($product)
