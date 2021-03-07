@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('content')
     <h1>List of Products</h1>
     @empty ($products)
     <div class="alert alert-warning">
@@ -36,5 +32,4 @@
         </table>
     </div>
     @endif
-</body>
-</html>
+@endsection
