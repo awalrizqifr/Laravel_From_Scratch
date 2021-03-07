@@ -22,20 +22,10 @@ class ProductController extends Controller
     }
 
     public function store()
-    {
-        /* 
-        $product = Product::create([
-            'title' => request()->title,
-            'description' => request()->description,
-            'price' => request()->price,
-            'stock' => request()->stock,
-            'status' => request()->status,
-        ]); 
-        */
-        
+    {   
         $product = Product::create(request()->all());
 
-        return $product;
+        return redirect()->route('products.index');
     }
 
     public function show($product)
@@ -60,7 +50,7 @@ class ProductController extends Controller
 
         $product->update(request()->all());
 
-        return $product;
+        return redirect()->route('products.index');
     }
 
     public function destroy($product)
@@ -69,6 +59,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return $product;
+        return redirect()->route('products.index');
     }
 }
