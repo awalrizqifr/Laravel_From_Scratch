@@ -59,23 +59,21 @@ class ProductController extends Controller
             // ->with(['success' => "New product with id {$product->id} was created"]);
     }
 
-    public function show($product)
+    public function show(Product $product)
     {
-        $product = Product::findOrFail($product);
-
         return view('products.show')->with([
             'product' => $product,
         ]);
     }
 
-    public function edit($product)
+    public function edit(Product $product)
     {
         return view('products.edit')->with([
-            'product' => Product::findOrFail($product),
+            'product' => $product,
         ]);
     }
 
-    public function update($product)
+    public function update(Product $product)
     {
         $rules = [
             'title' => ['required', 'max:255'],
@@ -96,8 +94,6 @@ class ProductController extends Controller
                 ->withErrors('If available must have stock');
         }
 
-        $product = Product::findOrFail($product);
-
         $product->update(request()->all());
 
         return redirect()
@@ -105,10 +101,8 @@ class ProductController extends Controller
             ->withSuccess("The product with id {$product->id} was updated");
     }
 
-    public function destroy($product)
+    public function destroy(Product $product)
     {
-        $product = Product::findOrFail($product);
-
         $product->delete();
 
         return redirect()
