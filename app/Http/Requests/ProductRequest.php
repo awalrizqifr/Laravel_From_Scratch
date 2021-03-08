@@ -33,17 +33,17 @@ class ProductRequest extends FormRequest
     }
 
     /**
- * Configure the validator instance.
- *
- * @param  \Illuminate\Validation\Validator  $validator
- * @return void
- */
-public function withValidator($validator)
-{
-    $validator->after(function ($validator) {
-        if ($this->stock == 0 && $this->status == 'available') {
-            $validator->errors()->add('stock', 'If available must have stock');
-        }
-    });
-}
+     * Configure the validator instance.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     */
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->stock == 0 && $this->status == 'available') {
+                $validator->errors()->add('stock', 'If available must have stock');
+            }
+        });
+    }
 }
