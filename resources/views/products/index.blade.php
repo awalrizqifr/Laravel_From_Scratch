@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>List of Products</h1>
-    <a class="btn btn-success" href="{{ route('products.create') }}">Create</a>
+    <a class="btn btn-success mb-3" href="{{ route('products.create') }}">Create</a>
     @empty ($products)
     <div class="alert alert-warning">
         The list of products is empty
