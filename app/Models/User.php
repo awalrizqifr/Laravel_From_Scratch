@@ -50,4 +50,9 @@ class User extends Authenticatable
     protected $dates = [
         'admin_since',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'customer_id');
+    }
 }
