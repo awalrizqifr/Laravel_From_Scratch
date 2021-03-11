@@ -30,12 +30,16 @@ class CartService
 
     public function countProducts()
     {
-        $cart = $this->getFromCookie();
-
+        $cartId = Cookie::get($this->cookieName);
+        
+        $cart = Cart::with(['products.images'])->find($cartId);
+        
         if (!$cart) {
             return 0;
         }
-
+        
         return $cart->products->pluck('pivot.quantity')->sum();
+        
+        // $cart = $this->getFromCookie();
     }
 }
