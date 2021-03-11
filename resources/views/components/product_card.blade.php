@@ -5,5 +5,12 @@
             <h5 class="card-title font-weight-bold">{{ $product->title }}</h5>
             <p class="card-text">{{ $product->description }}</p>
             <p class="card-text font-weight-bold">{{ $product->stock }} left</p>
+            <form
+            method="POST"
+            action="{{ route('products.carts.store', ['product' => $product->id]) }}"
+        >
+            @csrf
+            <button class="btn btn-success" type="submit">Add to Cart</button>
+        </form>
     </div>
 </div>

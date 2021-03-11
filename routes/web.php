@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('main');
 
 Route::resource('products', ProductController::class);
+Route::resource('products.carts', ProductCartController::class)->only(['store', 'destroy']);
 
 Auth::routes();
 
