@@ -5,6 +5,16 @@
 
     <h2 class="text-center font-weight-bold">Grand Total: ${{ $cart->total }}</h2>
 
+    <div class="text-center mb-3">
+        <form
+            method="POST"
+            action="{{ route('orders.store') }}"
+        >
+            @csrf
+            <button class="btn btn-success" type="submit">Confirm Order</button>
+        </form>
+    </div>
+
     <div class="table-responsive">
         <table class="table">
             <thead class="thead-light">
