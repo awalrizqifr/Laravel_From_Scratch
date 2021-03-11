@@ -2,6 +2,8 @@
 
 @section('content')
     <h1>Your Cart</h1>
+
+    <h2 class="text-center font-weight-bold">Grand Total: ${{ $cart->total }}</h2>
     
     @if (!isset($cart) || $cart->products->isEmpty())
         <div class="alert alert-warning">

@@ -14,6 +14,10 @@
                 <button class="btn btn-success" type="submit">Add to Cart</button>
             </form>
         @else
+            <p class="card-text font-weight-bold">
+                {{ $product->pivot->quantity }} in your cart
+                (${{ $product->total }})
+            </p>
             <form
                 method="POST"
                 action="{{ route('products.carts.destroy', ['product' => $product->id, 'cart' => $cart->id]) }}"

@@ -3,6 +3,8 @@
 @section('content')
     <h1>Order Details</h1>
 
+    <h2 class="text-center font-weight-bold">Grand Total: ${{ $cart->total }}</h2>
+
     <div class="table-responsive">
         <table class="table">
             <thead class="thead-light">
@@ -18,9 +20,9 @@
                             <img class="card-img-top" src="{{ asset($product->images->first()->path) }}" style="object-fit: cover; height: 250px; width: 250px;">
                             {{ $product->title }}
                         </td>
-                        <td>{{ $product->price }}</td>
+                        <td>${{ $product->price }}</td>
                         <td>{{ $product->pivot->quantity }}</td>
-                        <td>{{ $product->price * $product->pivot->quantity }}</td>
+                        <td>${{ $product->total }}</td>
                     </tr>
                 @endforeach
             </tbody>
