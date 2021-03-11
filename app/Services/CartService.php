@@ -11,7 +11,7 @@ class CartService
     {
         $cartId = Cookie::get('cart');
 
-        $cart = Cart::find($cartId);
+        $cart = Cart::with('products.images')->find($cartId);
 
         return $cart ?? Cart::create();
     }
