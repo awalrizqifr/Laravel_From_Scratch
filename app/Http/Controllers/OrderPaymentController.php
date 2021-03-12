@@ -15,6 +15,7 @@ class OrderPaymentController extends Controller
     {
         $this->cartService = $cartService;
     }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +39,7 @@ class OrderPaymentController extends Controller
     public function store(Request $request, Order $order)
     {
         //PaymentService::handlePayment()
-        
+
         $this->cartService->getFromCookie()->products()->detach();
 
         $order->payment()->create([
