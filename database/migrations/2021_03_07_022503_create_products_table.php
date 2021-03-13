@@ -21,6 +21,8 @@ class CreateProductsTable extends Migration
             $table->integer('stock')->unsigned();
             $table->string('status')->default('unavailable');
             $table->timestamps();
+
+            $table->engine = "InnoDB"; 
         });
     }
 

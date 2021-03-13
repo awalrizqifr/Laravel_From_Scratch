@@ -20,6 +20,8 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('users');
+
+            $table->engine = "InnoDB"; 
         });
     }
 

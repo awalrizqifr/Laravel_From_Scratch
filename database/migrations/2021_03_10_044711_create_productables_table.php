@@ -19,6 +19,8 @@ class CreateProductablesTable extends Migration
             $table->morphs('productable');
 
             $table->foreign('product_id')->references('id')->on('products');
+
+            $table->engine = "InnoDB"; 
         });
     }
 

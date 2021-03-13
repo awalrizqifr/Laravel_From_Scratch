@@ -21,6 +21,8 @@ class CreatePaymentsTable extends Migration
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');
+
+            $table->engine = "InnoDB"; 
         });
     }
 
