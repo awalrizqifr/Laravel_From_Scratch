@@ -5,7 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderPaymentController;
 use App\Http\Controllers\ProductCartController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\profileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MainController::class, 'index'])->name('main');
+
+Route::get('profile', [profileController::class, 'edit'])->name('profile.edit');
+
+Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::resource('carts', CartController::class)->only(['index']);
 
